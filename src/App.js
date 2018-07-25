@@ -18,4 +18,22 @@ class App extends Component {
   }
 }
 
+class Newspaper extends Component{
+  renderArticle(i){
+    return <Article value={i} />;
+  }
+}
+
+class Article extends React.Component {
+  render() {
+    return (
+    //"<a href=" + "'https://en.wikipedia.org/wiki/" + data[1][i] + "' class='entry' id='" + i + "' target='_blank'>" + "<h3>" + data[1][i] + "</h3>" + "<br>" + data[2][i] + "</a>"
+      <a className="entry" href={this.props.link} target="_blank">
+        {this.props.title}
+        {this.props.substitle}
+      </a>
+    );
+  }
+}
+
 export default App;
