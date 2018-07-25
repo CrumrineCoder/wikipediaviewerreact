@@ -13,6 +13,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <RandomArticles />
       </div>
     );
   }
@@ -32,6 +33,16 @@ class Article extends React.Component {
         {this.props.title}
         {this.props.substitle}
       </a>
+    );
+  }
+}
+
+class RandomArticles extends React.Component {
+  render() {
+    return (
+      <button className="randomArticles" onClick={function() { alert('click'); }}>
+        Get Random Articles
+      </button>
     );
   }
 }
