@@ -42,7 +42,13 @@ class Article extends React.Component {
     );
   }
   componentDidMount() {
-    fetch("https://en.wikipedia.org/w/api.php?action=opensearch&search=dog&limit=10&namespace=0&format=json", { mode: "no-cors",  headers: { 'Access-Control-Allow-Origin': '*' } })
+    fetch('https://randomuser.me/api/')
+      .then(({ results }) => this.setState({ magazine: results }));
+    console.log(this.state.magazine);
+  }
+  /*
+  componentDidMount() {
+    fetch("https://en.wikipedia.org/w/api.php?action=opensearch&search=dog&limit=10&namespace=0&format=json")
       .then(results => {
         return results.json();
       }).then(data => {
@@ -56,8 +62,10 @@ class Article extends React.Component {
         this.setState({ magazine: articles });
         console.log("articles", this.state.magazine);
       })
-  }
+  } */
 }
+
+
 
 
 
