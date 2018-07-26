@@ -14,33 +14,58 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <RandomArticles />
+        <Article />
       </div>
     );
   }
 }
 
-class Newspaper extends Component{
-  renderArticle(i){
+class Newspaper extends Component {
+  renderArticle(i) {
     return <Article value={i} />;
   }
 }
 
 class Article extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      magazine: []
+    };
+  }
   render() {
     return (
-    //"<a href=" + "'https://en.wikipedia.org/wiki/" + data[1][i] + "' class='entry' id='" + i + "' target='_blank'>" + "<h3>" + data[1][i] + "</h3>" + "<br>" + data[2][i] + "</a>"
+      //"<a href=" + "'https://en.wikipedia.org/wiki/" + data[1][i] + "' class='entry' id='" + i + "' target='_blank'>" + "<h3>" + data[1][i] + "</h3>" + "<br>" + data[2][i] + "</a>"
       <a className="entry" href={this.props.link} target="_blank">
-        {this.props.title}
-        {this.props.substitle}
+        {this.state.magazine}
       </a>
     );
   }
+  componentDidMount() {
+    fetch('"https://en.wikipedia.org/w/api.php?action=opensearch&search=" + b + "&limit=" + String(limit) + "&namespace=0&format=json";')
+      .then(results => {
+        console.log(results.json());
+        return results.json();
+      }).then(data => {
+        let articles = data.results.map((article) => {
+          return (
+            <div key={data[0]}>
+              <h3>{data[0][0]}</h3>
+            </div>
+          )
+        })
+        this.setState({ magazine: articles });
+        console.log("articles", this.state.magazine);
+      })
+  }
 }
+
+
 
 class RandomArticles extends React.Component {
   render() {
     return (
-      <button className="randomArticles" onClick={function() { alert('click'); }}>
+      <button className="randomArticles" onClick={() => alert('click')}>
         Get Random Articles
       </button>
     );
