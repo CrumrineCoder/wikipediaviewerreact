@@ -42,9 +42,8 @@ class Article extends React.Component {
     );
   }
   componentDidMount() {
-    fetch('"https://en.wikipedia.org/w/api.php?action=opensearch&search=" + b + "&limit=" + String(limit) + "&namespace=0&format=json";')
+    fetch("https://en.wikipedia.org/w/api.php?action=opensearch&search=dog&limit=10&namespace=0&format=json", { mode: "no-cors",  headers: { 'Access-Control-Allow-Origin': '*' } })
       .then(results => {
-        console.log(results.json());
         return results.json();
       }).then(data => {
         let articles = data.results.map((article) => {
