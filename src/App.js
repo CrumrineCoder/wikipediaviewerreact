@@ -30,7 +30,9 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      magazine: []
+      titles: [],
+      descriptions: [],
+      links: []
     };
   }
 
@@ -39,7 +41,10 @@ class Article extends React.Component {
     .then(results => {
       return results.json();
     }).then(data =>{
-      console.log(data);
+     data.map((article, i) => {
+        console.log(article);
+      })
+      this.setState({ titles: data[1], descriptions: data[2], links: data[3] })
 /*      let articles = data.results.map((article, i) =>{
         return (
           <div key={i}>
