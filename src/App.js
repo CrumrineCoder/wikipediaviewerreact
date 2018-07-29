@@ -34,15 +34,15 @@ class Article extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('https://randomuser.me/api/?results=500')
     .then(results => {
       return results.json();
     }).then(data =>{
-      let articles = data.results.map((article) =>{
+      let articles = data.results.map((article, i) =>{
         return (
-          <div key={article.results}>
-            <img src={article.picture.medium} />
+          <div key={i}>
+            <img key={i} src={article.picture.medium} />
           </div>
         )
       })
