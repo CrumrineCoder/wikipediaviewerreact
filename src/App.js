@@ -35,11 +35,12 @@ class Article extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/?results=500')
+    fetch('https://en.wikipedia.org/w/api.php?action=opensearch&search=dog&limit=10&namespace=0&origin=*')
     .then(results => {
       return results.json();
     }).then(data =>{
-      let articles = data.results.map((article, i) =>{
+      console.log(data);
+/*      let articles = data.results.map((article, i) =>{
         return (
           <div key={i}>
             <img key={i} src={article.picture.medium} />
@@ -47,7 +48,7 @@ class Article extends React.Component {
         )
       })
       this.setState({ magazine: articles })
-      console.log("magazine", this.state.magazine);
+      console.log("magazine", this.state.magazine); */
     })
      // .then(({ results }) => ;
   }
