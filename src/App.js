@@ -33,6 +33,24 @@ class Article extends React.Component {
       magazine: []
     };
   }
+
+  componentWillMount() {
+    fetch('https://randomuser.me/api/?results=500')
+    .then(results => {
+      return results.json();
+    }).then(data =>{
+      let articles = data.results.map((article) =>{
+        return (
+          <div key={article.results}>
+            <img src={article.picture.medium} />
+          </div>
+        )
+      })
+      this.setState({ magazine: articles })
+      console.log("magazine", this.state.magazine);
+    })
+     // .then(({ results }) => ;
+  }
   render() {
     return (
       //"<a href=" + "'https://en.wikipedia.org/wiki/" + data[1][i] + "' class='entry' id='" + i + "' target='_blank'>" + "<h3>" + data[1][i] + "</h3>" + "<br>" + data[2][i] + "</a>"
@@ -40,11 +58,6 @@ class Article extends React.Component {
         {this.state.magazine}
       </a>
     );
-  }
-  componentDidMount() {
-    fetch('https://randomuser.me/api/')
-      .then(({ results }) => this.setState({ magazine: results }));
-    console.log(this.state.magazine);
   }
   /*
   componentDidMount() {
