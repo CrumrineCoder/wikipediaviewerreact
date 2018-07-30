@@ -28,18 +28,11 @@ class Newspaper extends Component {
 
 function convertToJSON(array) {
   var objArray = [];
-  var key = ["titles", "descriptions", "links"]
+  var key = ["title", "description", "link"]
   console.log(array);
   for (var i = 1; i <= array[1].length; i++) {
-    console.log("I: " + i);
-    console.log(array[i]);
     objArray[i - 1] = {};
-    console.log("objArray");
-    console.log(objArray);
-    for (var k = 1; k <=3 ; k++) {
-      console.log("K: " + k);
-      console.log("insert: ");
-      console.log( array[k][i-1]);
+    for (var k = 1; k <=3 ; k++) {;
       objArray[i-1][key[k-1]] = array[k][i-1]
     }
   }
@@ -51,9 +44,7 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      titles: [],
-      descriptions: [],
-      links: []
+      magazine: []
     };
   }
 
@@ -80,7 +71,16 @@ class Article extends React.Component {
     .then(results => {
       return results.json();
     }).then(data =>{
-      console.log(convertToJSON(data));
+      let articles = convertToJSON(data).map((article, i) =>{
+        return (
+            <h1 key={i}> {article.title} </h1>
+        )
+      })
+      console.log(typeof articles);
+      console.log(articles[0]);
+     this.setState({magazine: articles});
+     console.log("magazine", this.state.magazine);
+    //  console.log(convertToJSON(data));
    /*   let table = [];
 
       for(let i=0; i<3; i++){
@@ -96,7 +96,7 @@ class Article extends React.Component {
         console.log(article);
       })
       this.setState({ titles: data[1], descriptions: data[2], links: data[3] }) */
-/*      let articles = data.results.map((article, i) =>{
+   /*   let articles = data.results.map((article, i) =>{
         return (
           <div key={i}>
             <img key={i} src={article.picture.medium} />
