@@ -39,7 +39,7 @@ function convertToJSON(array) {
     for (var k = 0; k < 3; k++) {
       console.log("K: " + k)
       console.log(array[k]);
-      objArray[i - 1][key[k]] = array[i][k]
+      objArray[i - 1][key[k]] = array[k][i]
     }
   }
 
