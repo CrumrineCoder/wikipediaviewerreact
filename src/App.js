@@ -26,6 +26,26 @@ class Newspaper extends Component {
   }
 }
 
+function convertToJSON(array) {
+  var objArray = [];
+  var key = ["titles", "descriptions", "links"]
+  console.log(array);
+  for (var i = 1; i < array[1].length-1; i++) {
+    console.log("I: " + i);
+    console.log(array[i]);
+    objArray[i - 1] = {};
+    console.log("objArray");
+    console.log(objArray);
+    for (var k = 0; k < 3; k++) {
+      console.log("K: " + k)
+      console.log(array[k]);
+      objArray[i - 1][key[k]] = array[i][k]
+    }
+  }
+
+  return objArray;
+}
+
 class Article extends React.Component {
   constructor(props) {
     super(props);
@@ -36,15 +56,45 @@ class Article extends React.Component {
     };
   }
 
+  /*
+  createTable = () => {
+    let table = []
+
+    // Outer loop to create parent
+    for (let i = 0; i < 3; i++) {
+      let children = []
+      //Inner loop to create children
+      for (let j = 0; j < 5; j++) {
+        children.push(<td>{`Column ${j + 1}`}</td>)
+      }
+      //Create the parent and add the children
+      table.push(<tr>{children}</tr>)
+    }
+    return table
+  }
+  */
+
   componentDidMount() {
     fetch('https://en.wikipedia.org/w/api.php?action=opensearch&search=dog&limit=10&namespace=0&origin=*')
     .then(results => {
       return results.json();
     }).then(data =>{
+      console.log(convertToJSON(data));
+   /*   let table = [];
+
+      for(let i=0; i<3; i++){
+        let children = [];
+        for(let j=0; j<5; j++){
+          children.push(<td>{`Column ${j + 1}`}</td>)
+        }
+        table.push(<tr>{children}</tr>)
+      }
+      return table; */
+  /*    console.log(data);
      data.map((article, i) => {
         console.log(article);
       })
-      this.setState({ titles: data[1], descriptions: data[2], links: data[3] })
+      this.setState({ titles: data[1], descriptions: data[2], links: data[3] }) */
 /*      let articles = data.results.map((article, i) =>{
         return (
           <div key={i}>
