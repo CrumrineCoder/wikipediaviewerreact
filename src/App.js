@@ -30,16 +30,17 @@ function convertToJSON(array) {
   var objArray = [];
   var key = ["titles", "descriptions", "links"]
   console.log(array);
-  for (var i = 1; i < array[1].length-1; i++) {
+  for (var i = 1; i <= array[1].length; i++) {
     console.log("I: " + i);
     console.log(array[i]);
     objArray[i - 1] = {};
     console.log("objArray");
     console.log(objArray);
-    for (var k = 0; k < 3; k++) {
-      console.log("K: " + k)
-      console.log(array[k]);
-      objArray[i - 1][key[k]] = array[k][i]
+    for (var k = 1; k <=3 ; k++) {
+      console.log("K: " + k);
+      console.log("insert: ");
+      console.log( array[k][i-1]);
+      objArray[i-1][key[k-1]] = array[k][i-1]
     }
   }
 
