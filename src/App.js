@@ -13,7 +13,6 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <RandomArticles />
         <Article />
       </div>
     );
@@ -29,14 +28,12 @@ class Newspaper extends Component {
 function convertToJSON(array) {
   var objArray = [];
   var key = ["title", "description", "link"]
-  console.log(array);
   for (var i = 1; i <= array[1].length; i++) {
     objArray[i - 1] = {};
-    for (var k = 1; k <=3 ; k++) {;
-      objArray[i-1][key[k-1]] = array[k][i-1]
+    for (var k = 1; k <= 3; k++) {
+      objArray[i - 1][key[k - 1]] = array[k][i - 1];
     }
   }
-
   return objArray;
 }
 
@@ -44,44 +41,63 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      magazine: []
+      magazine: [],
+      query: ''
     };
   }
 
-  componentDidMount() {
-    fetch('https://en.wikipedia.org/w/api.php?action=opensearch&search=dog&limit=10&namespace=0&origin=*')
-    .then(results => {
-      return results.json();
-    }).then(data =>{
-      let articles = convertToJSON(data).map((article, i) =>{
-        return (
-          <a key={i} target="_blank" href={article.link}>
-            <h3> {article.title} </h3>
-            <p> {article.description} </p>
-          </a>
-        )
-      })
-     this.setState({magazine: articles});
+  handleInputChange = () => {
+    this.setState({
+      query: this.search.value
+    }, () => {
+      if (this.state.query && this.state.query.length > 1) {
+          this.fetchData();
+      } else if (!this.state.query) {
+      }
     })
   }
+
+  fetchData = () => {
+    fetch('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + this.state.query + '&limit=10&namespace=0&origin=*')
+      .then(results => {
+        return results.json();
+      }).then(data => {
+        console.log("Before: ", this.state.query);
+        let articles = convertToJSON(data).map((article, i) => {
+          return (
+            <a key={i} target="_blank" href={article.link}>
+              <h3> {article.title} </h3>
+              <p> {article.description} </p>
+            </a>
+          )
+        })
+        this.setState({ magazine: articles });
+        console.log("After: ", this.state.query);
+      })
+  }
+
   render() {
     return (
       //"<a href=" + "'https://en.wikipedia.org/wiki/" + data[1][i] + "' class='entry' id='" + i + "' target='_blank'>" + "<h3>" + data[1][i] + "</h3>" + "<br>" + data[2][i] + "</a>"
+          //<Suggestions results={this.state.results} />
       <div className="entry">
+        <form>
+          <input
+            placeholder="Search for..."
+            ref={input => this.search = input}
+            onChange={this.handleInputChange}
+          />
+
+        </form>
+        <button className="randomArticles" onClick={this.fetchData}>
+          Get Random Articles
+       </button>
         {this.state.magazine}
       </div>
+
     );
   }
 }
 
-class RandomArticles extends React.Component {
-  render() {
-    return (
-      <button className="randomArticles" onClick={() => alert('click')}>
-        Get Random Articles
-      </button>
-    );
-  }
-}
 
 export default App;
