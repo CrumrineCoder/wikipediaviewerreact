@@ -25,28 +25,41 @@ class Newspaper extends Component {
   }
 }
 
-function APIDATA (props) {
-  if(props.query.length > 0){
-   if(props.magazine.length > 0){
-     return props.magazine;
-   } else{
-     return <p> There are no results for this search query. </p>
-   }
+function APIDATA(props) {
+  console.log("Jordan");
+  if (props.query.length > 0) {
+    if (props.magazine.length > 0) {
+      return props.magazine;
+    } else {
+      return <p> There are no results for this search query. </p>
+    }
   }
-  else if(props.query.length === 0){
+  else if (props.query.length === 0) {
     return <p>Type in the search bar above to search for Wikipedia Articles.</p>
   }
 }
 
-function convertToJSON(array) {
+function convertToJSONQuery(array) {
   var objArray = [];
-  var key = ["title", "description", "link"]
-  for (var i = 1; i <= array[1].length; i++) {
+  var key = ["title", "description", "link"];
+  for (var i = 1; i <= array.length; i++) {
     objArray[i - 1] = {};
     for (var k = 1; k <= 3; k++) {
       objArray[i - 1][key[k - 1]] = array[k][i - 1];
     }
   }
+  return objArray;
+}
+
+function convertToJSONRandom(array) {
+  var objArray = [];
+  var key = "title"; 
+  for (var i = 0; i <= array.length-1; i++) {
+    objArray[i] = {};
+    objArray[i][key] = array[i].title;
+    objArray[i]["link"] = "https://en.wikipedia.org/wiki/" + array[i].title;
+  }
+  console.log(objArray)
   return objArray;
 }
 
@@ -63,11 +76,27 @@ class Article extends React.Component {
     this.setState({
       query: this.search.value
     }, () => {
-      console.log("Test");
       //   if (this.state.query && this.state.query.length > 1) {
       this.fetchData();
       //}
     })
+  }
+
+  fetchRandomData = () => {
+    fetch('https://en.wikipedia.org/w/api.php?action=query&list=random&format=json&rnnamespace=0&rnlimit=10&origin=*')
+      .then(results => {
+        return results.json();
+      }).then(data => {
+        let articles = convertToJSONRandom(data.query.random).map((article, i) => {
+          console.log(article);
+          return (
+            <a key={i} target="_blank" href={article.link}>
+              <h3> {article.title} </h3>
+            </a>
+          )
+        })
+        this.setState({ magazine: articles });
+      })
   }
 
 
@@ -78,7 +107,7 @@ class Article extends React.Component {
           return results.json();
         }).then(data => {
           console.log("Before: ", this.state.query);
-          let articles = convertToJSON(data).map((article, i) => {
+          let articles = convertToJSONQuery(data).map((article, i) => {
             return (
               <a key={i} target="_blank" href={article.link}>
                 <h3> {article.title} </h3>
@@ -96,13 +125,14 @@ class Article extends React.Component {
 
   render() {
     return (
-      <div className="entry">
+        <div className="entry">
+        <button onClick={this.fetchRandomData}> Get Random Articles </button>
         <input
           placeholder="Search for..."
           ref={input => this.search = input}
           onChange={this.handleInputChange}
         />
-      <APIDATA magazine={this.state.magazine} query={this.state.query}/>
+        <APIDATA magazine={this.state.magazine} query={this.state.query} />
       </div>
     );
   }
