@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -23,7 +25,7 @@ function APIDATA(props) {
     return props.magazine;
   }
   else if (props.query.length > 0) {
-    <p> There are no results for this search query. </p>
+    return <p> There are no results for this search query. </p>
   }
   else if (props.query.length === 0) {
     return <p>Type in the search bar above to search for Wikipedia Articles.</p>
@@ -72,6 +74,10 @@ class Article extends React.Component {
     })
   }
 
+  clear = () => {
+    this.setState({ magazine: {}, query: "" });
+  }
+
   fetchRandomData = () => {
     fetch('https://en.wikipedia.org/w/api.php?action=query&list=random&format=json&rnnamespace=0&rnlimit=10&origin=*')
       .then(results => {
@@ -113,11 +119,13 @@ class Article extends React.Component {
   render() {
     return (
       <div className="entry">
+        <button onClick={this.clear}> Clear </button>
         <button onClick={this.fetchRandomData}> Get Random Articles </button>
         <input
           placeholder="Search for..."
           ref={input => this.search = input}
           onChange={this.handleInputChange}
+          value={this.state.query}
         />
         <APIDATA magazine={this.state.magazine} query={this.state.query} />
       </div>
