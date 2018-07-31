@@ -26,11 +26,15 @@ class Newspaper extends Component {
 }
 
 function APIDATA (props) {
-  if(props.magazine.length > 0){
-   return props.magazine;
+  if(props.query.length > 0){
+   if(props.magazine.length > 0){
+     return props.magazine;
+   } else{
+     return <p> There are no results for this search query. </p>
+   }
   }
-  else{
-    return <p>There are no results for this search query.</p>
+  else if(props.query.length === 0){
+    return <p>Type in the search bar above to search for Wikipedia Articles.</p>
   }
 }
 
@@ -98,7 +102,7 @@ class Article extends React.Component {
           ref={input => this.search = input}
           onChange={this.handleInputChange}
         />
-      <APIDATA magazine={this.state.magazine}/>
+      <APIDATA magazine={this.state.magazine} query={this.state.query}/>
       </div>
     );
   }
