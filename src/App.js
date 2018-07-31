@@ -50,12 +50,12 @@ class Article extends React.Component {
     this.setState({
       query: this.search.value
     }, () => {
-      if (this.state.query && this.state.query.length > 1) {
-          this.fetchData();
-      } else if (!this.state.query) {
-      }
+      //   if (this.state.query && this.state.query.length > 1) {
+      this.fetchData();
+      //}
     })
   }
+
 
   fetchData = () => {
     fetch('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + this.state.query + '&limit=10&namespace=0&origin=*')
@@ -77,27 +77,25 @@ class Article extends React.Component {
   }
 
   render() {
+    var length = this.state.magazine.length;
+    console.log(length);
     return (
       //"<a href=" + "'https://en.wikipedia.org/wiki/" + data[1][i] + "' class='entry' id='" + i + "' target='_blank'>" + "<h3>" + data[1][i] + "</h3>" + "<br>" + data[2][i] + "</a>"
-          //<Suggestions results={this.state.results} />
+      //<Suggestions results={this.state.results} />
+      /*   <button className="randomArticles" onClick={this.fetchData}>
+             Get Random Articles
+           </button>
+      */
       <div className="entry">
-        <form>
-          <input
-            placeholder="Search for..."
-            ref={input => this.search = input}
-            onChange={this.handleInputChange}
-          />
-
-        </form>
-        <button className="randomArticles" onClick={this.fetchData}>
-          Get Random Articles
-       </button>
+        <input
+          placeholder="Search for..."
+          ref={input => this.search = input}
+          onChange={this.handleInputChange}
+        />
         {this.state.magazine}
       </div>
-
     );
   }
 }
-
 
 export default App;
