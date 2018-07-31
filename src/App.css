@@ -1,23 +1,151 @@
-.App {	
-    text-align: center;	
-  }	
-   .App-logo {	
-    animation: App-logo-spin infinite 20s linear;	
-    height: 80px;	
-  }	
-   .App-header {	
-    background-color: #222;	
-    height: 150px;	
-    padding: 20px;	
-    color: white;	
-  }	
-   .App-title {	
-    font-size: 1.5em;	
-  }	
-   .App-intro {	
-    font-size: large;	
-  }	
-   @keyframes App-logo-spin {	
-    from { transform: rotate(0deg); }	
-    to { transform: rotate(360deg); }	
-  }
+
+/* Entire Document */
+body {
+	
+  color: white; 
+  background: #232B2B;
+  margin: 0;
+
+}
+
+/* Header */
+nav {
+  background: black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  font-family: sans-serif;
+  font-family: "Circle", Verdana, Tahoma;
+  text-align: center;
+  vertical-align: middle;
+  position: fixed;
+  bottom: 0;
+}
+
+#nic {
+  color: #40CC33;
+  text-decoration: none;
+}
+
+#nic:hover {
+  color: #4A9943;
+}
+
+/* Search Bar */
+
+.icon {
+  position: absolute;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+}
+
+#searchContainer{
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  margin: 10px auto;
+  width: 35%;
+  
+}
+
+#searchContainer input {
+
+  width: 90%;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: background 1s ease;
+  -moz-transition: background 1s ease;
+  -ms-transition: background 1s ease;
+  -o-transition: background 1s ease;
+  transition: background 1s ease;
+}
+
+#searchContainer input::-webkit-input-placeholder {
+  color: #65737e;
+}
+
+#searchContainer input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #65737e;
+}
+
+#searchContainer input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #65737e;
+}
+
+#searchContainer input:-ms-input-placeholder {
+  color: #65737e;
+}
+
+#searchContainer input:hover,
+#searchContainer input:focus,
+#searchContainer input:active {
+  outline: none;
+  background: #ffffff;
+}
+
+
+button{
+ margin: 10px auto; 
+    display:block;
+ border: 2px solid #65737e; 
+ background: #232B2B; 
+ color: #65737e; 
+ font-size: 18px;
+ padding: 5px;  
+ outline: none; 
+}
+
+button:hover{
+	color: #ffffff; 
+  border-color: #ffffff; 
+  cursor: pointer; 
+}
+
+/* Search Results */
+
+h3 {
+  margin: 0 auto; 
+  color: #FFFFFF;
+}
+
+.article{
+	background-color: #DC3D24;
+  color: #FFFFFF;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 75%;
+}
+
+
+
+.article:hover{
+	background: #A32D1B; 
+}
+#contentContainer{
+	 text-align: center;
+   margin: 100px 0px;
+}
+
+@media screen and (max-width: 800px) {
+	#searchContainer{
+		width: 100%; 
+	}
+	#searchContainer input {
+		width: 100%; 
+	}
+}

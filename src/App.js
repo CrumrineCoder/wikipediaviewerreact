@@ -21,7 +21,7 @@ class Newspaper extends Component {
 }
 
 function APIDATA(props) {
-  if (props.magazine.length > 0)  {
+  if (props.magazine.length > 0) {
     return props.magazine;
   }
   else if (props.query.length > 0 && props.magazine.length == 0) {
@@ -85,7 +85,7 @@ class Article extends React.Component {
       }).then(data => {
         let articles = convertToJSONRandom(data.query.random).map((article, i) => {
           return (
-            <a key={i} target="_blank" href={article.link}>
+            <a class="article" key={i} target="_blank" href={article.link}>
               <h3> {article.title} </h3>
             </a>
           )
@@ -103,7 +103,7 @@ class Article extends React.Component {
         }).then(data => {
           let articles = convertToJSONQuery(data).map((article, i) => {
             return (
-              <a key={i} target="_blank" href={article.link}>
+              <a class="article" key={i} target="_blank" href={article.link}>
                 <h3> {article.title} </h3>
                 <p> {article.description} </p>
               </a>
@@ -119,15 +119,17 @@ class Article extends React.Component {
   render() {
     return (
       <div className="entry">
-        <button onClick={this.clear}> Clear </button>
-        <button onClick={this.fetchRandomData}> Get Random Articles </button>
-        <input
-          placeholder="Search for..."
-          ref={input => this.search = input}
-          onChange={this.handleInputChange}
-          value={this.state.query}
-        />
-        <APIDATA magazine={this.state.magazine} query={this.state.query} />
+        <div id="searchContainer">
+          <button onClick={this.clear}> Clear </button>
+          <button onClick={this.fetchRandomData}> Get Random Articles </button>
+          <input
+            placeholder="Search for..."
+            ref={input => this.search = input}
+            onChange={this.handleInputChange}
+            value={this.state.query}
+          />
+        </div>
+        <APIDATA id="contentContainer" magazine={this.state.magazine} query={this.state.query} />
       </div>
     );
   }
