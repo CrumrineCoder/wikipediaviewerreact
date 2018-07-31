@@ -26,13 +26,11 @@ class Newspaper extends Component {
 }
 
 function APIDATA(props) {
-  console.log("Jordan");
-  if (props.query.length > 0) {
-    if (props.magazine.length > 0) {
-      return props.magazine;
-    } else {
-      return <p> There are no results for this search query. </p>
-    }
+  if (props.magazine.length > 0) {
+    return props.magazine;
+  }
+  else if (props.query.length > 0) {
+    <p> There are no results for this search query. </p>
   }
   else if (props.query.length === 0) {
     return <p>Type in the search bar above to search for Wikipedia Articles.</p>
@@ -53,13 +51,12 @@ function convertToJSONQuery(array) {
 
 function convertToJSONRandom(array) {
   var objArray = [];
-  var key = "title"; 
-  for (var i = 0; i <= array.length-1; i++) {
+  var key = "title";
+  for (var i = 0; i <= array.length - 1; i++) {
     objArray[i] = {};
     objArray[i][key] = array[i].title;
     objArray[i]["link"] = "https://en.wikipedia.org/wiki/" + array[i].title;
   }
-  console.log(objArray)
   return objArray;
 }
 
@@ -88,7 +85,6 @@ class Article extends React.Component {
         return results.json();
       }).then(data => {
         let articles = convertToJSONRandom(data.query.random).map((article, i) => {
-          console.log(article);
           return (
             <a key={i} target="_blank" href={article.link}>
               <h3> {article.title} </h3>
@@ -106,7 +102,6 @@ class Article extends React.Component {
         .then(results => {
           return results.json();
         }).then(data => {
-          console.log("Before: ", this.state.query);
           let articles = convertToJSONQuery(data).map((article, i) => {
             return (
               <a key={i} target="_blank" href={article.link}>
@@ -116,7 +111,6 @@ class Article extends React.Component {
             )
           })
           this.setState({ magazine: articles });
-          console.log("After: ", this.state.query);
         })
     } else {
       this.setState({ magazine: "" });
@@ -125,7 +119,7 @@ class Article extends React.Component {
 
   render() {
     return (
-        <div className="entry">
+      <div className="entry">
         <button onClick={this.fetchRandomData}> Get Random Articles </button>
         <input
           placeholder="Search for..."
