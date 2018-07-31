@@ -1,7 +1,4 @@
-
-
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -11,12 +8,6 @@ class App extends Component {
         <Article />
       </div>
     );
-  }
-}
-
-class Newspaper extends Component {
-  renderArticle(i) {
-    return <Article value={i} />;
   }
 }
 
@@ -68,9 +59,7 @@ class Article extends React.Component {
     this.setState({
       query: this.search.value
     }, () => {
-      //   if (this.state.query && this.state.query.length > 1) {
       this.fetchData();
-      //}
     })
   }
 
@@ -129,13 +118,10 @@ class Article extends React.Component {
             value={this.state.query}
           />
         </div>
-        <APIDATA id="contentContainer" magazine={this.state.magazine} query={this.state.query} />
+        <APIDATA magazine={this.state.magazine} query={this.state.query} />
       </div>
     );
   }
 }
-
-
-
 
 export default App;
