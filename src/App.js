@@ -21,13 +21,13 @@ class Newspaper extends Component {
 }
 
 function APIDATA(props) {
-  if (props.magazine.length > 0) {
+  if (props.magazine.length > 0)  {
     return props.magazine;
   }
-  else if (props.query.length > 0) {
+  else if (props.query.length > 0 && props.magazine.length == 0) {
     return <p> There are no results for this search query. </p>
   }
-  else if (props.query.length === 0) {
+  else {
     return <p>Type in the search bar above to search for Wikipedia Articles.</p>
   }
 }
@@ -35,7 +35,7 @@ function APIDATA(props) {
 function convertToJSONQuery(array) {
   var objArray = [];
   var key = ["title", "description", "link"];
-  for (var i = 1; i <= array.length; i++) {
+  for (var i = 1; i <= array[1].length; i++) {
     objArray[i - 1] = {};
     for (var k = 1; k <= 3; k++) {
       objArray[i - 1][key[k - 1]] = array[k][i - 1];
