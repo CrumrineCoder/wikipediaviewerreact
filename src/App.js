@@ -25,6 +25,15 @@ class Newspaper extends Component {
   }
 }
 
+function APIDATA (props) {
+  if(props.magazine.length > 0){
+   return props.magazine;
+  }
+  else{
+    return <p>There are no results for this search query.</p>
+  }
+}
+
 function convertToJSON(array) {
   var objArray = [];
   var key = ["title", "description", "link"]
@@ -76,31 +85,26 @@ class Article extends React.Component {
           this.setState({ magazine: articles });
           console.log("After: ", this.state.query);
         })
-    } else{
+    } else {
       this.setState({ magazine: "" });
     }
   }
 
   render() {
-    var length = this.state.magazine.length;
-    console.log(length);
     return (
-      //"<a href=" + "'https://en.wikipedia.org/wiki/" + data[1][i] + "' class='entry' id='" + i + "' target='_blank'>" + "<h3>" + data[1][i] + "</h3>" + "<br>" + data[2][i] + "</a>"
-      //<Suggestions results={this.state.results} />
-      /*   <button className="randomArticles" onClick={this.fetchData}>
-             Get Random Articles
-           </button>
-      */
       <div className="entry">
         <input
           placeholder="Search for..."
           ref={input => this.search = input}
           onChange={this.handleInputChange}
         />
-        {this.state.magazine}
+      <APIDATA magazine={this.state.magazine}/>
       </div>
     );
   }
 }
+
+
+
 
 export default App;
