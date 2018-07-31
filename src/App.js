@@ -50,6 +50,7 @@ class Article extends React.Component {
     this.setState({
       query: this.search.value
     }, () => {
+      console.log("Test");
       //   if (this.state.query && this.state.query.length > 1) {
       this.fetchData();
       //}
@@ -58,22 +59,26 @@ class Article extends React.Component {
 
 
   fetchData = () => {
-    fetch('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + this.state.query + '&limit=10&namespace=0&origin=*')
-      .then(results => {
-        return results.json();
-      }).then(data => {
-        console.log("Before: ", this.state.query);
-        let articles = convertToJSON(data).map((article, i) => {
-          return (
-            <a key={i} target="_blank" href={article.link}>
-              <h3> {article.title} </h3>
-              <p> {article.description} </p>
-            </a>
-          )
+    if (this.state.query) {
+      fetch('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + this.state.query + '&limit=10&namespace=0&origin=*')
+        .then(results => {
+          return results.json();
+        }).then(data => {
+          console.log("Before: ", this.state.query);
+          let articles = convertToJSON(data).map((article, i) => {
+            return (
+              <a key={i} target="_blank" href={article.link}>
+                <h3> {article.title} </h3>
+                <p> {article.description} </p>
+              </a>
+            )
+          })
+          this.setState({ magazine: articles });
+          console.log("After: ", this.state.query);
         })
-        this.setState({ magazine: articles });
-        console.log("After: ", this.state.query);
-      })
+    } else{
+      this.setState({ magazine: "" });
+    }
   }
 
   render() {
