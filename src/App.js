@@ -16,10 +16,10 @@ function APIDATA(props) {
     return props.magazine;
   }
   else if (props.query.length > 0 && props.magazine.length == 0) {
-    return <p> There are no results for this search query. </p>
+    return <h3> There are no results for this search query. </h3>
   }
   else {
-    return <p>Type in the search bar above to search for Wikipedia Articles.</p>
+    return <h3>Type in the search bar above to search for Wikipedia Articles.</h3>
   }
 }
 
