@@ -8,6 +8,31 @@ body {
 
 }
 
+/* Nav */
+
+
+nav {
+  background: black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-family: sans-serif;
+  font-family: "Circle", Verdana, Tahoma;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#nic {
+  color: #40CC33;
+  text-decoration: none;
+}
+
+#nic:hover {
+  color: #4A9943;
+}
+
 /* Search Bar */
 #searchContainer{
   vertical-align: middle;
