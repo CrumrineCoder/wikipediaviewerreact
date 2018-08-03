@@ -42,12 +42,10 @@ body {
 }
 
 #searchContainer input:-moz-placeholder {
-  /* Firefox 18- */
   color: #65737e;
 }
 
 #searchContainer input::-moz-placeholder {
-  /* Firefox 19+ */
   color: #65737e;
 }
 
