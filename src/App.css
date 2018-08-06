@@ -33,6 +33,13 @@ nav {
   color: #4A9943;
 }
 
+.clear{
+  display: inline; 
+  margin-left: 10px; 
+  height: 50px; 
+  border-radius: 5px; 
+}
+
 /* Search Bar */
 #searchContainer{
   vertical-align: middle;
@@ -53,7 +60,7 @@ nav {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  display: block;
+  display: inline;
   margin: 0 auto; 
   -webkit-transition: background 1s ease;
   -moz-transition: background 1s ease;

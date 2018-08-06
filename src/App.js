@@ -109,16 +109,16 @@ class Article extends React.Component {
     return (
       <div className="entry">
         <div id="searchContainer">
-          <APIDATA magazine={this.state.magazine} query={this.state.query} />
           <input
-            placeholder="Search for..."
+            placeholder="Search for any Wikipedia Article"
             ref={input => this.search = input}
             onChange={this.handleInputChange}
             value={this.state.query}
-          />
+          /><button class="clear" onClick={this.clear}> Clear </button>
         </div>
-        <button onClick={this.clear}> Clear </button>
-          <button onClick={this.fetchRandomData}> Get Random Articles </button>
+        <h3>- or -</h3>
+        <button onClick={this.fetchRandomData}> Get Random Articles </button>
+        <APIDATA magazine={this.state.magazine} query={this.state.query} />
       </div>
     );
   }
