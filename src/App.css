@@ -1,144 +1,156 @@
-
 /* Entire Document */
-body {
-	
-  color: white; 
-  background: #232B2B;
-  margin: 0;
 
+body {
+	color: white;
+	background: #232B2B;
+	margin: 0;
 }
+
+#root {
+	margin-bottom: 60px;
+}
+
 
 /* Nav */
 
-
 nav {
-  background: black;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  font-family: sans-serif;
-  font-family: "Circle", Verdana, Tahoma;
-  text-align: center;
-  vertical-align: middle;
+	background: black;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	font-family: sans-serif;
+	font-family: "Circle", Verdana, Tahoma;
+	text-align: center;
+	vertical-align: middle;
 }
 
 #nic {
-  color: #40CC33;
-  text-decoration: none;
+	color: #40CC33;
+	text-decoration: none;
 }
 
 #nic:hover {
-  color: #4A9943;
+	color: #4A9943;
 }
 
-.clear{
-  display: inline; 
-  margin-left: 10px; 
-  height: 50px; 
-  border-radius: 5px; 
+.clear {
+  margin-left: -50px;
+  border: none; 
+  height: 100px;
+  width: 50px;  
+  background: none; 
 }
+
+.fa-times{
+  padding-top: 20px;
+  font-size: 24px;
+}
+
 
 /* Search Bar */
-#searchContainer{
-  vertical-align: middle;
-  white-space: nowrap;
-  position: relative;
-  margin: 10px auto;
+
+#searchContainer {
+	vertical-align: middle;
+	white-space: nowrap;
+	position: relative;
+	margin: 10px auto;
   width: 35%;
+  position: relative; 
 }
 
 #searchContainer input {
-  width: 90%;
-  height: 50px;
-  background: #2b303b;
-  border: none;
-  font-size: 10pt;
-  color: #63717f;
-  padding-left: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  display: inline;
-  margin: 0 auto; 
-  -webkit-transition: background 1s ease;
-  -moz-transition: background 1s ease;
-  -ms-transition: background 1s ease;
-  -o-transition: background 1s ease;
-  transition: background 1s ease;
+	width: 90%;
+	height: 50px;
+	background: #2b303b;
+	border: none;
+	font-size: 10pt;
+	color: #63717f;
+	padding-left: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display: inline;
+	margin: 0 auto;
+	-webkit-transition: background 1s ease;
+	-moz-transition: background 1s ease;
+	-ms-transition: background 1s ease;
+	-o-transition: background 1s ease;
+	transition: background 1s ease;
 }
 
 #searchContainer input::-webkit-input-placeholder {
-  color: #65737e;
+	color: #65737e;
 }
 
 #searchContainer input:-moz-placeholder {
-  color: #65737e;
+	color: #65737e;
 }
 
 #searchContainer input::-moz-placeholder {
-  color: #65737e;
+	color: #65737e;
 }
 
 #searchContainer input:-ms-input-placeholder {
-  color: #65737e;
+	color: #65737e;
 }
 
 #searchContainer input:hover,
 #searchContainer input:focus,
 #searchContainer input:active {
-  outline: none;
-  background: #ffffff;
+	outline: none;
+	background: #ffffff;
 }
 
-.entry h3{
-  text-align: center; 
-  margin: 10px auto; 
+.entry h3 {
+	text-align: center;
+	margin: 10px auto;
 }
 
-button{
- margin: 10px auto; 
-    display:block;
- border: 2px solid #65737e; 
- background: #232B2B; 
- color: #65737e; 
- font-size: 18px;
- padding: 5px;  
- outline: none; 
+button:not(.clear) {
+	margin: 10px auto;
+	display: block;
+	border: 2px solid #65737e;
+	background: #232B2B;
+	color: #65737e;
+	font-size: 18px;
+	padding: 5px;
+	outline: none;
 }
 
-button:hover{
-	color: #ffffff; 
-  border-color: #ffffff; 
-  cursor: pointer; 
+button:hover {
+	color: #ffffff;
+	border-color: #ffffff;
+	cursor: pointer;
 }
+
 
 /* Search Results */
 
 h3 {
-  margin: 0 auto; 
-  color: #FFFFFF;
+	margin: 0 auto;
+	color: #FFFFFF;
 }
 
-.article{
-	background-color: #DC3D24;
-  color: #FFFFFF;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  width: 75%;
-  margin: 10px auto;
-  display: block; 
-  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+.article {
+	background-color: rgb(39, 149, 55);
+	color: #FFFFFF;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	width: 75%;
+	margin: 10px auto;
+	display: block;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
 }
 
-.article:hover{
-	background: #A32D1B; 
+.article:hover {
+	background: #A32D1B;
 }
 
 @media screen and (max-width: 800px) {
-	#searchContainer{
-		width: 100%; 
+	#searchContainer {
+		width: 100%;
 	}
 }

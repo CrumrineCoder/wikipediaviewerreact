@@ -114,10 +114,11 @@ class Article extends React.Component {
             ref={input => this.search = input}
             onChange={this.handleInputChange}
             value={this.state.query}
-          /><button class="clear" onClick={this.clear}> Clear </button>
+          /><button class="clear" onClick={this.clear}>  <i class="fa fa-times"> </i> </button>
+         
         </div>
         <h3>- or -</h3>
-        <button onClick={this.fetchRandomData}> Get Random Articles </button>
+        <button onClick={this.fetchRandomData}> Get Random Wikipedia Articles </button>
         <APIDATA magazine={this.state.magazine} query={this.state.query} />
       </div>
     );
