@@ -11,10 +11,6 @@ body, .App, #root {
     height: 100%;
 }
 
-#root {
-  margin-bottom: 60px;
-}
-
 .entry h3 {
 	text-align: center;
 	margin: 10px auto;
@@ -27,6 +23,7 @@ body, .App, #root {
  -ms-transition: margin 1s ease;
  -o-transition: margin 1s ease;
  transition: margin 1s ease;
+ margin-bottom: 50px; 
 }
 
 
