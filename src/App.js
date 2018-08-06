@@ -109,8 +109,7 @@ class Article extends React.Component {
     return (
       <div className="entry">
         <div id="searchContainer">
-          <button onClick={this.clear}> Clear </button>
-          <button onClick={this.fetchRandomData}> Get Random Articles </button>
+          <APIDATA magazine={this.state.magazine} query={this.state.query} />
           <input
             placeholder="Search for..."
             ref={input => this.search = input}
@@ -118,7 +117,8 @@ class Article extends React.Component {
             value={this.state.query}
           />
         </div>
-        <APIDATA magazine={this.state.magazine} query={this.state.query} />
+        <button onClick={this.clear}> Clear </button>
+          <button onClick={this.fetchRandomData}> Get Random Articles </button>
       </div>
     );
   }
