@@ -13,12 +13,17 @@ class App extends Component {
 
 function APIDATA(props) {
   if (props.magazine.length > 0) {
+    document.getElementsByClassName("entry")[0].style.marginTop = "50px";
     return props.magazine;
   }
-  else if (props.query.length > 0 && props.magazine.length == 0) {
+  else if (props.query.length > 0 && props.magazine.length === 0) {
+    document.getElementsByClassName("entry")[0].style.marginTop = "50px";
     return <h3> There are no results for this search query. </h3>
   }
   else {
+    if(document.getElementsByClassName("entry")[0]){
+      document.getElementsByClassName("entry")[0].style.marginTop = "200px"
+    }
     return <h3>Type in the search bar above to search for Wikipedia Articles.</h3>
   }
 }
@@ -74,7 +79,7 @@ class Article extends React.Component {
       }).then(data => {
         let articles = convertToJSONRandom(data.query.random).map((article, i) => {
           return (
-            <a class="article" key={i} target="_blank" href={article.link}>
+            <a className="article" key={i} target="_blank" href={article.link}>
               <h3> {article.title} </h3>
             </a>
           )
@@ -92,7 +97,7 @@ class Article extends React.Component {
         }).then(data => {
           let articles = convertToJSONQuery(data).map((article, i) => {
             return (
-              <a class="article" key={i} target="_blank" href={article.link}>
+              <a className="article" key={i} target="_blank" href={article.link}>
                 <h3> {article.title} </h3>
                 <p> {article.description} </p>
               </a>
@@ -108,13 +113,13 @@ class Article extends React.Component {
   render() {
     return (
       <div className="entry">
-        <div class="buttonInside">
+        <div className="searchContainer">
           <input
             placeholder="Search for any Wikipedia Article"
             ref={input => this.search = input}
             onChange={this.handleInputChange}
             value={this.state.query}
-          /><button class="clear" onClick={this.clear}>  <i class="fa fa-times"> </i> </button>
+          /><button className="clear" onClick={this.clear}>  <i className="fa fa-times"> </i> </button>
          
         </div>
         <h3>- or -</h3>
