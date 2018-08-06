@@ -108,7 +108,7 @@ class Article extends React.Component {
   render() {
     return (
       <div className="entry">
-        <div id="searchContainer">
+        <div class="buttonInside">
           <input
             placeholder="Search for any Wikipedia Article"
             ref={input => this.search = input}
