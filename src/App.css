@@ -54,8 +54,12 @@ nav {
   font-size: 24px;
 }
 
+.fa-times:hover, .clear:hover{
+  color: rgb(205, 57, 34); 
+}
+
 input{
-  width: 300px;
+  width: 280px;
   height: 50px; 
   height:50px;
   padding: 0px; 
@@ -67,8 +71,9 @@ input{
 
 .buttonInside{
   position:relative;
-  margin-bottom:10px;
-  width: 340px; 
+  width: 300px; 
+  text-align: center; 
+  margin: 10px auto; 
 }
 
 /* Search Bar */
