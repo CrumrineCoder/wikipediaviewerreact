@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Article from "./Article"
 
 class App extends Component {
   render() {
@@ -10,7 +11,7 @@ class App extends Component {
     );
   }
 }
-
+/*
 function APIDATA(props) {
   if (props.magazine.length > 0) {
     document.getElementsByClassName("entry")[0].style.marginTop = "50px";
@@ -129,5 +130,5 @@ class Article extends React.Component {
     );
   }
 }
-
+*/
 export default App;
