@@ -1,171 +1,178 @@
 /* Entire Document */
 
-body, html {
-	color: white;
-	background: #232B2B;
+body,
+html {
+  color: white;
+  background: #232b2b;
   margin: 0;
-  max-height: 100%; 
+  max-height: 100%;
 }
-html, 
-body, .App, #root {
-    height: 100%;
+html,
+body,
+.App,
+#root {
+  height: 100%;
 }
 
 .entry h3 {
-	text-align: center;
-	margin: 10px auto;
+  text-align: center;
+  margin: 10px auto;
 }
 
-.entry{
- margin-top: 200px; 
- -webkit-transition: margin 1s ease;
- -moz-transition: margin 1s ease;
- -ms-transition: margin 1s ease;
- -o-transition: margin 1s ease;
- transition: margin 1s ease;
- margin-bottom: 50px; 
+.entry {
+  margin-top: 200px;
+  -webkit-transition: margin 1s ease;
+  -moz-transition: margin 1s ease;
+  -ms-transition: margin 1s ease;
+  -o-transition: margin 1s ease;
+  transition: margin 1s ease;
+  margin-bottom: 50px;
 }
-
 
 button:not(.clear) {
-	margin: 10px auto;
-	display: block;
-	border: 2px solid #65737e;
-	background: #232B2B;
-	color: #65737e;
-	font-size: 18px;
-	padding: 5px;
-	outline: none;
+  margin: 10px auto;
+  display: block;
+  border: 2px solid #65737e;
+  background: #232b2b;
+  color: #65737e;
+  font-size: 18px;
+  padding: 5px;
+  outline: none;
 }
 
 button:hover {
-	color: #ffffff;
-	border-color: #ffffff;
-	cursor: pointer;
+  color: #ffffff;
+  border-color: #ffffff;
+  cursor: pointer;
 }
 
 /* Nav */
 
 nav {
-	background: black;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	width: 100%;
-	position: fixed;
-	bottom: 0;
-	font-family: sans-serif;
-	font-family: "Circle", Verdana, Tahoma;
-	text-align: center;
-	vertical-align: middle;
+  background: black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-family: sans-serif;
+  font-family: "Circle", Verdana, Tahoma;
+  text-align: center;
+  vertical-align: middle;
 }
 
 #nic {
-	color: #40CC33;
-	text-decoration: none;
+  color: #40cc33;
+  text-decoration: none;
 }
 
 #nic:hover {
-	color: #4A9943;
+  color: #4a9943;
 }
 
 /* Search Bar */
 .clear {
-  position:absolute;
+  position: absolute;
   right: 0px;
   top: 0px;
-  border:none;
-  height:50px;
-  width:50px;
-  border-radius:100%;
-  outline:none;
-  text-align:center;
-  font-weight:bold;
-  padding:2px;
-  border-radius: 0px 4px 4px 0px; 
-  background: none; 
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  outline: none;
+  text-align: center;
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 0px 4px 4px 0px;
+  background: none;
 }
 
-.fa-times{
+.fa-times {
   font-size: 24px;
 }
 
-.fa-times:hover, .clear:hover{
-  color: rgb(205, 57, 34); 
+.fa-times:hover,
+.clear:hover {
+  color: rgb(205, 57, 34);
 }
 
-.searchContainer{
-  position:relative;
-  width: 300px; 
-  text-align: center; 
-  margin: 10px auto; 
+.searchContainer {
+  position: relative;
+  width: 300px;
+  text-align: center;
+  margin: 10px auto;
 }
 
 .searchContainer input {
   width: 290px;
-  height: 50px; 
-  padding: 0px; 
-  padding-left:10px;
+  height: 50px;
+  padding: 0px;
+  padding-left: 10px;
   border-radius: 4px;
-  outline:none;
-	background: #2b303b;
-	border: none; 
-	color: #63717f;
-	padding-left: 10px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	display: inline;
-	margin: 0 auto;
-	-webkit-transition: background 1s ease;
-	-moz-transition: background 1s ease;
-	-ms-transition: background 1s ease;
-	-o-transition: background 1s ease;
-	transition: background 1s ease;
+  outline: none;
+  background: #2b303b;
+  border: none;
+  color: #63717f;
+  padding-left: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display: inline;
+  margin: 0 auto;
+  -webkit-transition: background 1s ease;
+  -moz-transition: background 1s ease;
+  -ms-transition: background 1s ease;
+  -o-transition: background 1s ease;
+  transition: background 1s ease;
 }
 
 .searchContainer input::-webkit-input-placeholder {
-	color: #65737e;
+  color: #65737e;
 }
 
 .searchContainer input:-moz-placeholder {
-	color: #65737e;
+  color: #65737e;
 }
 
 .searchContainer input::-moz-placeholder {
-	color: #65737e;
+  color: #65737e;
 }
 
 .searchContainer input:-ms-input-placeholder {
-	color: #65737e;
+  color: #65737e;
 }
 
 .searchContainer input:hover,
 .searchContainer input:focus,
 .searchContainer input:active {
-	outline: none;
-	background: #ffffff;
+  outline: none;
+  background: #ffffff;
 }
-
 
 /* Search Results */
 
 h3 {
-	margin: 0 auto;
-	color: #FFFFFF;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.WikipediaResultsContainer{
+	padding-bottom: 50px; 
 }
 
 .article {
-	background-color: rgb(39, 149, 55);
-	color: #FFFFFF;
-	padding: 14px 25px;
-	text-align: center;
-	text-decoration: none;
-	width: 75%;
-	margin: 10px auto;
-	display: block;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  background-color: rgb(39, 149, 55);
+  color: #ffffff;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  width: 75%;
+  margin: 10px auto;
+  display: block;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px; 
 }
 
 .article:hover {
-	background: #A32D1B;
+  background: #a32d1b;
 }
