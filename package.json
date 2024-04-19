@@ -1,5 +1,6 @@
 {
   "name": "wikipediaviewerreact",
+  "homepage": "https://crumrinecoder.github.io/wikipediaviewerreact/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "yarn run build && surge -p build -d dark-yarn.surge.sh"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
