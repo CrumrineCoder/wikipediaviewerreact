@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wikipediaviewerreact/static/css/main.e9ee35e9.css",
+    "main.js": "/wikipediaviewerreact/static/js/main.9890e2d9.js",
+    "index.html": "/wikipediaviewerreact/index.html",
+    "main.e9ee35e9.css.map": "/wikipediaviewerreact/static/css/main.e9ee35e9.css.map",
+    "main.9890e2d9.js.map": "/wikipediaviewerreact/static/js/main.9890e2d9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e9ee35e9.css",
+    "static/js/main.9890e2d9.js"
+  ]
+}
